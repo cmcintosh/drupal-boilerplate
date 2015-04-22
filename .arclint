@@ -1,0 +1,7 @@
+{
+  "linters": {
+    "codestandards": {
+      "type": "phpcs"
+    }
+  }
+}
