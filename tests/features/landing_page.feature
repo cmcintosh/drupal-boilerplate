@@ -12,6 +12,3 @@ Scenario: Access the homepage
 Scenario: I can Login
   Given I am logged in as a user with the "administrator" role
   When I am on "/"
-  Then I should see the text "hello"
-
-
