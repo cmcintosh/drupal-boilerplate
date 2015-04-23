@@ -1,0 +1,52 @@
+default:
+  paths:
+    features: 'features'
+  extensions:
+    Behat\MinkExtension\Extension:
+      default_session: selenium2
+      browser_name: 'chrome'
+      javascript_session: webdriver
+      selenium2:
+        capabilities: { "browser": "chrome" }
+      base_url: http://boilerplate.dev
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      api_driver: 'drush'
+      drush:
+        alias: 'boilerplate.local'
+      region_map:
+        login_form: "user-login"
+# Profile for Firefox Browser Testing
+firefox:
+    extensions:
+        Behat\MinkExtension\Extension:
+            browser_name: firefox
+# Profile for Chrome Browser Testing
+chrome:
+    extensions:
+        Behat\MinkExtension\Extension:
+            browser_name: chrome
+# Profile for IE Browser Testing
+ie:
+    extensions:
+        Behat\MinkExtension\Extension:
+            browser_name: ie
+# Profile for running the tests via PhantomJS, this should be used on Jenkins
+jenkins_qa:
+  context:
+      class:  'FeatureContext'
+  extensions:
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      api_driver: 'drush'
+      drush:
+        alias: 'boilerplate.test'
+      region_map:
+        login_form: "user-login"
+    Behat\MinkExtension\Extension:
+      goutte: ~
+      selenium2:
+        wd_host: "http://localhost:8643/wd/hub"
+      base_url: http://boilerplate_diffcheck.wembassy.com
+# Epics should be broken out by suites, so that if we want we could test specific Epics
+# see @http://docs.behat.org/en/latest/guides/5.suites.html on how to do this.
