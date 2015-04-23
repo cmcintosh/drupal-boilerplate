@@ -1,7 +1,7 @@
 # Sensitive information #
 #########################
 # Ignore the vendor files for tests
-tests/vendor
+
 
 # Ignore configuration files that may contain sensitive information.
 docroot/sites/*/settings*.php
